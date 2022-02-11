@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  gap: 1vw;
+  list-style: none;
+}
+.header > * {
+  display: inline-block;
+}
+.header > li:last-child {
+  margin-left: auto;
+  background-color: red;
+}
