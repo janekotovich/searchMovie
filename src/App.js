@@ -1,47 +1,20 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 import MovieList from "./components/MovieList";
 
 const App = () => {
-  const [movieList, setMovieList] = useState([
-    {
-      id: "tt1375666",
-      resultType: "Title",
-      image:
-        "https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg",
-      title: "Inception",
-      description: "(2010)",
-    },
-    {
-      id: "tt1790736",
-      resultType: "Title",
-      image:
-        "https://imdb-api.com/images/original/MV5BMjE0NGIwM2EtZjQxZi00ZTE5LWExN2MtNDBlMjY1ZmZkYjU3XkEyXkFqcGdeQXVyNjMwNzk3Mjk@._V1_Ratio0.6800_AL_.jpg",
-      title: "Inception: Motion Comics",
-      description: "(2010 Video)",
-    },
-    {
-      id: "tt5295990",
-      resultType: "Title",
-      image:
-        "https://imdb-api.com/images/original/MV5BZGFjOTRiYjgtYjEzMS00ZjQ2LTkzY2YtOGQ0NDI2NTVjOGFmXkEyXkFqcGdeQXVyNDQ5MDYzMTk@._V1_Ratio0.6800_AL_.jpg",
-      title: "Inception: Jump Right Into the Action",
-      description: "(2010 Video)",
-    },
-    {
-      id: "tt1686778",
-      resultType: "Title",
-      image: "https://imdb-api.com/images/original/nopicture.jpg",
-      title: "Inception: 4Movie Premiere Special",
-      description: "(2010 TV Movie)",
-    },
-    {
-      id: "tt12960252",
-      resultType: "Title",
-      image: "https://imdb-api.com/images/original/nopicture.jpg",
-      title: "Inception Premiere",
-      description: "(2010)",
-    },
-  ]);
+  const [movieList, setMovieList] = useState([]);
+
+  const fetchMovieList = () => {
+    return axios
+      .get("https://imdb-api.com/en/API/SearchMovie/k_149x61ug/inception 2010")
+      .then((res) => console.log(res.data.results));
+  };
+
+  useEffect(() => {
+    fetchMovieList();
+  }, []);
 
   return (
     <>

@@ -9,6 +9,7 @@
     "templates"
   ],
   "dependencies": {
+    "axios": "^0.25.0",
     "create-create-app": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
