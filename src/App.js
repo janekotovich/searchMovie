@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import MovieList from "./components/Movies/MovieList";
-import MovieHeader from "./components/UI/MovieHeader";
+import Header from "./components/UI/Header";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <>
-      <MovieHeader />
+      <Header />
       <h1>Test for the movie website</h1>
       <div className="row">
         <MovieList movies={movieList} />
