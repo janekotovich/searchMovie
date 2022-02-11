@@ -1,0 +1,8 @@
+.movie__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie__list > img {
+  width: 15vw;
+}
