@@ -1,10 +1,26 @@
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 import styles from "./Search.module.css";
 const Search = (props) => {
+  const navigate = useNavigate();
+  const searchInputRef = useRef();
+
+  const onSearchHandler = (e) => {
+    e.preventDefault();
+    const searchQuery = new URLSearchParams({
+      query: searchInputRef.current.value,
+    }).toString();
+    console.log(searchInputRef.current.value);
+    navigate("/search/?" + searchQuery);
+  };
+
   return (
     <>
-      <form className={styles.search} onSubmit={props.onSearchReq}>
+      <form className={styles.search} onSubmit={onSearchHandler}>
         <input
-          //   value=""
+          type="text"
+          ref={searchInputRef}
           //   onChange={(e) => props.onSearchReq(e.target.value)}
           placeholder="Type to search the movie"
         ></input>
