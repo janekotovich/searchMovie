@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Routes } from "react-router-dom";
+// import { Routes } from "react-router-dom";
+import WebsiteRoutes from "./components/WebsiteRoutes";
 
 import MovieList from "./components/Movies/MovieList";
 import TopMovies from "./components/Movies/TopMovies";
@@ -33,7 +34,7 @@ const App = () => {
   return (
     <>
       <Header onSearchReq={searchReqHandler} />
-      <Routes />
+      <WebsiteRoutes />
       {/*
         <Route path="/" component={Home} />
 
