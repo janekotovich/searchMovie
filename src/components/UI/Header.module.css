@@ -6,6 +6,10 @@
 .header > * {
   display: inline-block;
 }
+.logo {
+  width: 2rem;
+}
+
 .header > li:last-child {
   margin-left: auto;
   background-color: red;

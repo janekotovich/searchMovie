@@ -1,5 +1,7 @@
 import styles from "./Header.module.css";
 import Search from "../Movies/Search";
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const searchReqHandler = (e) => {
@@ -10,7 +12,11 @@ const Header = (props) => {
     <>
       <header>
         <ul className={styles.header}>
-          <li>LOGO</li>
+          <li>
+            <Link to="/">
+              <img src={logo} alt="Movie wesite logo" className={styles.logo} />
+            </Link>
+          </li>
           <li>
             <Search onSearchReq={searchReqHandler} />
           </li>

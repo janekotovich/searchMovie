@@ -13,7 +13,6 @@ const SearchPage = () => {
     async function fetchMovieList() {
       const query = queryParams.get("query");
       const movieData = await getSearchMovieList(query);
-      console.log(movieData);
 
       setMovieList(movieData);
     }
