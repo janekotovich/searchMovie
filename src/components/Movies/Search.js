@@ -4,7 +4,7 @@ const Search = (props) => {
     <>
       <form className={styles.search} onSubmit={props.onSearchReq}>
         <input
-          //   value={props.value}
+          //   value=""
           //   onChange={(e) => props.onSearchReq(e.target.value)}
           placeholder="Type to search the movie"
         ></input>

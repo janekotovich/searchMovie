@@ -1,6 +1,8 @@
 .movie__list {
   display: flex;
   column-gap: 2rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
 }
 
 .movie__list > li > img {

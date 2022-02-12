@@ -1,15 +1,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes } from "react-router-dom";
 
 import MovieList from "./components/Movies/MovieList";
+import TopMovies from "./components/Movies/TopMovies";
 import Header from "./components/UI/Header";
+import Footer from "./components/UI/Footer";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const searchReqHandler = (searchReq) => {
-    console.log(searchReq);
     setSearchValue(searchReq);
   };
 
@@ -31,10 +33,12 @@ const App = () => {
   return (
     <>
       <Header onSearchReq={searchReqHandler} />
-      <h1>Test for the movie website</h1>
-      <div className="row">
-        <MovieList movies={movieList} />
-      </div>
+      <Routes />
+      {/*
+        <Route path="/" component={Home} />
+
+        {movieList && movieList.length > 0 && <MovieList movies={movieList} />} */}
+      <Footer />
     </>
   );
 };

@@ -1,0 +1,10 @@
+.topmovieList {
+  display: flex;
+  column-gap: 2rem;
+}
+.topmovieList > li {
+  list-style: none;
+}
+.topmovieList > li > img {
+  width: 10vw;
+}
