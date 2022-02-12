@@ -1,8 +1,8 @@
 .movie__list {
   display: flex;
-  flex-direction: column;
+  column-gap: 2rem;
 }
 
-.movie__list > img {
+.movie__list > li > img {
   width: 15vw;
 }

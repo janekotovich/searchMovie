@@ -6,20 +6,31 @@ import Header from "./components/UI/Header";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
-  const fetchMovieList = () => {
-    return axios
-      .get("https://imdb-api.com/en/API/SearchMovie/k_149x61ug/inception 2010")
-      .then((res) => console.log(res.data.results));
+  const searchReqHandler = (searchReq) => {
+    console.log(searchReq);
+    setSearchValue(searchReq);
+  };
+
+  const fetchMovieList = async () => {
+    try {
+      let res = await axios.get(
+        `https://imdb-api.com/en/API/SearchMovie/k_149x61ug/${searchValue}`
+      );
+      setMovieList(res.data.results);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
-    fetchMovieList();
-  }, []);
+    fetchMovieList(searchValue);
+  }, [searchValue]);
 
   return (
     <>
-      <Header />
+      <Header onSearchReq={searchReqHandler} />
       <h1>Test for the movie website</h1>
       <div className="row">
         <MovieList movies={movieList} />

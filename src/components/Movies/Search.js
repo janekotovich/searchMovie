@@ -1,11 +1,15 @@
+import styles from "./Search.module.css";
 const Search = (props) => {
   return (
     <>
-      <input
-        value={props.value}
-        onChange={(e) => props.setSearchValue(e.target.value)}
-        placeholder="Type to search the movie"
-      ></input>
+      <form className={styles.search} onSubmit={props.onSearchReq}>
+        <input
+          //   value={props.value}
+          //   onChange={(e) => props.onSearchReq(e.target.value)}
+          placeholder="Type to search the movie"
+        ></input>
+        <button type="submit">Search me</button>
+      </form>
     </>
   );
 };
