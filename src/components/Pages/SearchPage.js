@@ -8,7 +8,7 @@ const SearchPage = () => {
     return new URLSearchParams(search);
   }, [search]);
   const [movieList, setMovieList] = useState([]);
-  console.log(movieList);
+
   useEffect(() => {
     async function fetchMovieList() {
       const query = queryParams.get("query");
