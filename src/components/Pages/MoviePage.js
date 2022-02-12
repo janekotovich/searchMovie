@@ -18,7 +18,7 @@ const MoviePage = () => {
   console.log(singleMovie);
   return (
     <>
-      <h2>{singleMovie.imDbRating}</h2>
+      <h2>{singleMovie.title}</h2>
     </>
   );
 };

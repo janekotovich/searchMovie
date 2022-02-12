@@ -11,8 +11,8 @@ const Search = (props) => {
     const searchQuery = new URLSearchParams({
       query: searchInputRef.current.value,
     }).toString();
-    console.log(searchInputRef.current.value);
     navigate("/search/?" + searchQuery);
+    e.target.reset();
   };
 
   return (
@@ -21,7 +21,6 @@ const Search = (props) => {
         <input
           type="text"
           ref={searchInputRef}
-          //   onChange={(e) => props.onSearchReq(e.target.value)}
           placeholder="Type to search the movie"
         ></input>
         <button type="submit">Search me</button>

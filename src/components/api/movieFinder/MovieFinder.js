@@ -26,7 +26,6 @@ export const getSingleMovieInfo = async (id) => {
     let res = await axios.get(
       `https://imdb-api.com/en/API/Title/k_prjrkjmb/${id}`
     );
-
     return res.data;
   } catch (err) {
     console.error(err.message);

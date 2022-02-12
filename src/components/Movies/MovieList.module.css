@@ -3,8 +3,11 @@
   column-gap: 2rem;
   overflow-x: auto;
   flex-wrap: nowrap;
+  width: 90vw;
+  align-items: center;
+  margin: auto;
 }
 
-.movie__list > li > img {
+.moviePoster {
   width: 15vw;
 }

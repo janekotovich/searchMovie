@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./MovieList.module.css";
 
 const MovieList = (props) => {
@@ -10,7 +11,13 @@ const MovieList = (props) => {
             <li key={m.id}>
               <h2>{m.title}</h2>
               <p>{m.description}</p>
-              <img src={m.image} alt="Movie poster" />
+              <Link to={`../${m.id}`}>
+                <img
+                  src={m.image}
+                  alt="Movie poster"
+                  className={styles.moviePoster}
+                />
+              </Link>
             </li>
           ))}
       </ul>
