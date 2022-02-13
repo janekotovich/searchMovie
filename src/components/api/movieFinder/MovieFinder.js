@@ -1,9 +1,11 @@
 import axios from "axios";
+const API_KEY = "k_149x61ug";
 export const getSearchMovieList = async (searchValue) => {
   try {
     let res = await axios.get(
-      `https://imdb-api.com/en/API/SearchMovie/k_prjrkjmb/${searchValue}`
+      `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/${searchValue}`
     );
+    console.log(res);
     return res.data.results;
   } catch (err) {
     console.error(err.message);
@@ -13,9 +15,10 @@ export const getSearchMovieList = async (searchValue) => {
 export const getTopMovies = async () => {
   try {
     let res = await axios.get(
-      `https://imdb-api.com/en/API/MostPopularMovies/k_prjrkjmb`
+      `https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`
     );
-    return res.data.items;
+    console.log(res);
+    return res;
   } catch (err) {
     console.error(err.message);
   }
@@ -24,8 +27,9 @@ export const getTopMovies = async () => {
 export const getSingleMovieInfo = async (id) => {
   try {
     let res = await axios.get(
-      `https://imdb-api.com/en/API/Title/k_prjrkjmb/${id}`
+      `https://imdb-api.com/en/API/Title/${API_KEY}/${id}`
     );
+    console.log(res);
     return res.data;
   } catch (err) {
     console.error(err.message);

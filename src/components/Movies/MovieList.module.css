@@ -7,7 +7,13 @@
   align-items: center;
   margin: auto;
 }
+.movie__list > li {
+  width: 20vw;
+  text-align: center;
+  list-style: none;
+}
 
 .moviePoster {
-  width: 15vw;
+  height: 40vh;
+  object-fit: cover;
 }

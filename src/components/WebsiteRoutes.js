@@ -10,7 +10,7 @@ const WebsiteRoutes = () => {
     <>
       <Routes>
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/error" exact={true} element={<ErrorPage />} />
         <Route path="/:movieId" element={<MoviePage />} />
         <Route path="/" element={<Home />} />
       </Routes>

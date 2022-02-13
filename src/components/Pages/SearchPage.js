@@ -15,6 +15,7 @@ const SearchPage = () => {
       const movieData = await getSearchMovieList(query);
 
       setMovieList(movieData);
+      console.log(movieData);
     }
     fetchMovieList();
   }, [queryParams]);

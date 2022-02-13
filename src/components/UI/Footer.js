@@ -7,8 +7,6 @@ const Footer = () => {
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="800"
-              width="1200"
               viewBox="-204.79995 -341.33325 1774.9329 2047.9995"
             >
               <path
@@ -24,8 +22,6 @@ const Footer = () => {
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="800"
-              width="1200"
               viewBox="-100.7682 -167.947 873.3244 1007.682"
             >
               <g fill="#100f0d">
@@ -37,8 +33,6 @@ const Footer = () => {
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="800"
-              width="1200"
               viewBox="-44.7006 -60.54775 387.4052 363.2865"
             >
               <path
@@ -50,8 +44,6 @@ const Footer = () => {
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="800"
-              width="1200"
               viewBox="-37.5 -62.5 325 375"
             >
               <path
@@ -116,8 +108,6 @@ const Footer = () => {
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="1200"
-              height="800"
               viewBox="-13.2 -16.50405 114.4 99.0243"
             >
               <path

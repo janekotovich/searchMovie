@@ -1,15 +1,30 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { errorActions } from "../store/error";
+
 import TopMovies from "../Movies/TopMovies";
+
 import { getTopMovies } from "../api/movieFinder/MovieFinder";
 import styles from "./Home.module.css";
 const Home = () => {
   const [topMovieList, setTopMovieList] = useState([]);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchTopMovieList() {
-      const topMovieData = await getTopMovies();
+      const apiReq = await getTopMovies();
+      const topMovieData = apiReq.data.items;
+      const error = apiReq.data.errorMessage;
 
-      setTopMovieList(topMovieData);
+      if (topMovieData.length === 0 && error) {
+        dispatch(errorActions.setError(error));
+        navigate("/error");
+      } else {
+        setTopMovieList(topMovieData);
+      }
     }
     fetchTopMovieList();
   }, []);
