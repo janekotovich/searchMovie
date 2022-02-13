@@ -2,11 +2,23 @@ import styles from "./Header.module.css";
 import Search from "../Movies/Search";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { authActions } from "../store/auth";
+import { useSelector, useDispatch } from "react-redux";
 
 const Header = (props) => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
   const searchReqHandler = (e) => {
     e.preventDefault();
     props.onSearchReq(e.target[0].value);
+  };
+
+  const loginHandler = () => {
+    dispatch(authActions.login());
+  };
+  const logoutHandler = () => {
+    dispatch(authActions.logout());
   };
   return (
     <>
@@ -20,7 +32,13 @@ const Header = (props) => {
           <li>
             <Search onSearchReq={searchReqHandler} />
           </li>
-          <li>LOG IN</li>
+          <li>
+            {isAuth ? (
+              <button onClick={logoutHandler}>Log out</button>
+            ) : (
+              <button onClick={loginHandler}>Log in</button>
+            )}
+          </li>
         </ul>
       </header>
     </>

@@ -8,17 +8,26 @@ const MoviePage = () => {
 
   useEffect(() => {
     async function fetchSingleMovie() {
-      console.log(movieId);
       const singleMovieInfo = await getSingleMovieInfo(movieId);
 
       setSingleMovie(singleMovieInfo);
     }
     fetchSingleMovie();
   }, []);
-  console.log(singleMovie);
+
   return (
     <>
-      <h2>{singleMovie.title}</h2>
+      <div>
+        <h1>{singleMovie.title}</h1>
+        <h2>imDb Rating - {singleMovie.imDbRating}</h2>
+        <h3>( {singleMovie.imDbRatingVotes} Votes)</h3>
+        <h4>{singleMovie.genres}</h4>
+        <img src={singleMovie.image}></img>
+        <h4>Stars: {singleMovie.stars}</h4>
+        <h4>Directors: {singleMovie.directors}</h4>
+        <h5>Release year: {singleMovie.year}</h5>
+        <p>{singleMovie.plot}</p>
+      </div>
     </>
   );
 };

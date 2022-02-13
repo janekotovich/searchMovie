@@ -1,6 +1,26 @@
-.main {
+* {
+  box-sizing: border-box;
+}
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #f2efde;
+  background-color: #252525;
   font-size: 62.5%;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #f2efde;
+  border: 1px solid #f2efde;
+  color: #252525;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+}
+
+button:hover,
+button:active {
+  background-color: #d4d2c4;
+  border-color: #d4d2c4;
 }
