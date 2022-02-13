@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TopMovies from "../Movies/TopMovies";
 import { getTopMovies } from "../api/movieFinder/MovieFinder";
+import styles from "./Home.module.css";
 const Home = () => {
   const [topMovieList, setTopMovieList] = useState([]);
 
@@ -15,7 +16,7 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.home}>
         <h1>Test for the movie website</h1>
         <TopMovies movies={topMovieList} />
       </div>

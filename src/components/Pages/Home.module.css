@@ -1,0 +1,7 @@
+.home {
+  padding: 2rem 5rem;
+}
+.home > h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
