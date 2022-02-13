@@ -15,8 +15,10 @@ const Home = () => {
 
   return (
     <>
-      <h1>Test for the movie website</h1>
-      <TopMovies movies={topMovieList} />
+      <div>
+        <h1>Test for the movie website</h1>
+        <TopMovies movies={topMovieList} />
+      </div>
     </>
   );
 };

@@ -1,2 +1,21 @@
 .search {
+  display: flex;
+  gap: 2rem;
+}
+input {
+  width: 65vw;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+}
+input:focus {
+  outline: none !important;
+  border: 1px solid #e2252b;
+  box-shadow: 0 0 10px #e2252b;
+}
+input::placeholder {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: #e2252b;
+  text-align: center;
 }

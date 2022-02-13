@@ -1,8 +1,9 @@
+import styles from "./Footer.module.css";
 const Footer = () => {
   return (
     <>
-      <div className="footer">
-        <ul>
+      <div>
+        <ul className={styles.footer}>
           <li>Footer1</li>
           <li>Footer2</li>
           <li>Footer3</li>

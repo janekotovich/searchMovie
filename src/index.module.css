@@ -1,13 +1,18 @@
 * {
   box-sizing: border-box;
-}
-body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+body {
   color: #f2efde;
   background-color: #252525;
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+p,
+li {
+  font-family: "Nunito", sans-serif;
 }
 button {
   font: inherit;
@@ -17,6 +22,8 @@ button {
   color: #252525;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 button:hover,

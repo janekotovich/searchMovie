@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  background-color: #424242;
+  height: 100%;
+  align-items: center;
+}
+
+.footer > * {
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}

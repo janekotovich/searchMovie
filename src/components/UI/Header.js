@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import Search from "../Movies/Search";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { authActions } from "../store/auth";
 import { useSelector, useDispatch } from "react-redux";
