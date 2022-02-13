@@ -12,3 +12,6 @@
   text-transform: uppercase;
   font-size: 0.9rem;
 }
+svg {
+  width: 3rem;
+}

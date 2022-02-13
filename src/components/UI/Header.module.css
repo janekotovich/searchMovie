@@ -11,10 +11,14 @@
   display: inline-block;
 }
 .logo {
-  width: 2rem;
+  width: 3rem;
   filter: invert(0.9);
 }
 
+.hover:hover,
+.hover:active {
+  box-shadow: 0 0 10px #f2efde;
+}
 .header > li:last-child {
   margin-left: auto;
 }

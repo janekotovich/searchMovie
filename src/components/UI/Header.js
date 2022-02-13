@@ -25,7 +25,7 @@ const Header = (props) => {
       <header>
         <ul className={styles.header}>
           <li>
-            <Link to="/">
+            <Link to="/" className={styles.hover}>
               <img src={logo} alt="Movie wesite logo" className={styles.logo} />
             </Link>
           </li>
