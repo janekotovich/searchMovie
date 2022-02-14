@@ -25,9 +25,11 @@ const TopMovies = (props) => {
                 className={styles.topMovieImgOverlay}
                 onClick={() => {
                   if (liked.length > 0 && liked.includes(m.id)) {
-                    dispatch(favActions.removeFromFav(m.id));
+                    dispatch(favActions.removeFromFav());
+                    console.log("removed");
                   } else {
                     dispatch(favActions.addToFav(m.id));
+                    console.log(liked);
                   }
                 }}
               >

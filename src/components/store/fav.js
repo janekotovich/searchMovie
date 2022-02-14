@@ -12,7 +12,11 @@ const favSlice = createSlice({
       state.favourites.push(action.payload);
     },
     removeFromFav(state, action) {
-      state.favourites.map((ele) => ele != action.payload);
+      state.favourites.filter((favourite) => favourite !== action.payload);
+      state.favourites.splice(
+        state.favourites.findIndex((favourite) => favourite === action.payload),
+        1
+      );
     },
   },
 });
