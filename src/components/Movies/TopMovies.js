@@ -7,15 +7,17 @@ const TopMovies = (props) => {
       <ul className={styles.topmovieList}>
         {topTen.map((m) => (
           <li key={m.id}>
-            <Link to={`./${m.id}`}>
+            <div className={styles.topMovieImageContainer}>
               <img
                 src={m.image}
                 alt="Movie poster"
                 className={styles.topMovieImg}
               />
-            </Link>
+
+              <div className={styles.topMovieImgOverlay}>Add to Favourites</div>
+            </div>
             <Link to={`./${m.id}`} className={styles.link}>
-              <div>
+              <div className={styles.topMovieInfo}>
                 <h4>{m.title}</h4>
                 <h5>{m.year}</h5>
               </div>

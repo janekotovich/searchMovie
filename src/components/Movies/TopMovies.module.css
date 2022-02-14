@@ -15,8 +15,34 @@
   height: 40vh;
   padding: 1.5rem 0;
 }
+.topMovieImageContainer {
+  position: relative;
+  transition: transform 0.2s;
+}
+.topMovieImageContainer:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.topMovieImageContainer:hover .topMovieImgOverlay {
+  opacity: 1;
+}
+
+.topMovieImgOverlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
 .link {
   color: #f2efde;
   text-decoration: none;
   font-size: 1rem;
+}
+.topMovieInfo {
+  margin: 2rem auto;
 }
