@@ -6,7 +6,7 @@ export const getSearchMovieList = async (searchValue) => {
       `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/${searchValue}`
     );
     console.log(res);
-    return res.data.results;
+    return res;
   } catch (err) {
     console.error(err.message);
   }

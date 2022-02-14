@@ -1,0 +1,28 @@
+.singleMoviePage {
+  height: 100%;
+  padding: 1rem 1rem;
+  display: grid;
+  grid-template:
+    minmax(min-content, auto) minmax(30vh, 50vh) minmax(min-content, auto)
+    / 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+.singleMoviePageImg {
+  height: 50vh;
+}
+.singleMovieDescription {
+  width: 40vw;
+}
+h1 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+p {
+  font-size: 1rem;
+}

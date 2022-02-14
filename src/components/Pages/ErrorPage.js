@@ -8,14 +8,15 @@ const ErrorPage = () => {
   const navigate = useNavigate();
   const cleanErrorHandler = () => {
     dispatch(errorActions.cleanError());
+    console.log(isError);
     navigate("../");
   };
-  console.log(isError);
+
   return (
     <>
       <div>
         <h1>BIG errror</h1>
-        {isError && <h2>{isError}</h2>}
+        <h2>{isError}</h2>
         <button onClick={cleanErrorHandler}>CLEAN ERROR</button>
       </div>
     </>
