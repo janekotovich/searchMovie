@@ -1,7 +1,9 @@
 import styles from "./TopMovies.module.css";
 import { Link } from "react-router-dom";
+import AddToFav from "../UI/AddToFav";
 const TopMovies = (props) => {
   let topTen = props.movies.slice(0, 10);
+
   return (
     <>
       <ul className={styles.topmovieList}>
@@ -14,7 +16,9 @@ const TopMovies = (props) => {
                 className={styles.topMovieImg}
               />
 
-              <div className={styles.topMovieImgOverlay}>Add to Favourites</div>
+              <div className={styles.topMovieImgOverlay}>
+                <AddToFav />
+              </div>
             </div>
             <Link to={`./${m.id}`} className={styles.link}>
               <div className={styles.topMovieInfo}>
