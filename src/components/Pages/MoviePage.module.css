@@ -26,3 +26,7 @@ h5 {
 p {
   font-size: 1rem;
 }
+.spinner {
+  margin: 30vh;
+  text-align: center;
+}

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./MovieList.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const MovieList = (props) => {
-  console.log(props.movies);
+  console.log(props.isDataLoading);
   return (
     <>
+      {props.isDataLoading && (
+        <div className={styles.spinner}>
+          <LoadingSpinner />
+        </div>
+      )}
       <ul className={styles.movie__list}>
         {(props.movies || props.movies > 0) &&
           props.movies.map((m, i) => (

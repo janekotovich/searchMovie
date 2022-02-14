@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import { getSingleMovieInfo } from "../api/movieFinder/MovieFinder";
 import { useParams } from "react-router-dom";
 import styles from "./MoviePage.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
+
 const MoviePage = () => {
   const [singleMovie, setSingleMovie] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const { movieId } = useParams();
 
   useEffect(() => {
     async function fetchSingleMovie() {
       const singleMovieInfo = await getSingleMovieInfo(movieId);
-
+      setIsLoading(false);
       setSingleMovie(singleMovieInfo);
     }
     fetchSingleMovie();
@@ -17,6 +20,11 @@ const MoviePage = () => {
 
   return (
     <>
+      {isLoading && (
+        <div className={styles.spinner}>
+          <LoadingSpinner />
+        </div>
+      )}
       <div className={styles.singleMoviePage}>
         <div>
           <h1>{singleMovie.title}</h1>
