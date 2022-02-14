@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_KEY = "k_149x61ug";
+const API_KEY = "k_prjrkjmb";
 export const getSearchMovieList = async (searchValue) => {
   try {
     let res = await axios.get(
