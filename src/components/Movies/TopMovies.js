@@ -1,8 +1,13 @@
 import styles from "./TopMovies.module.css";
 import { Link } from "react-router-dom";
 import AddToFav from "../UI/AddToFav";
+import { useDispatch, useSelector } from "react-redux";
+import { favActions } from "../store/fav";
+
 const TopMovies = (props) => {
   let topTen = props.movies.slice(0, 10);
+  const dispatch = useDispatch();
+  const liked = useSelector((state) => state.favs.favourites);
 
   return (
     <>
@@ -16,7 +21,16 @@ const TopMovies = (props) => {
                 className={styles.topMovieImg}
               />
 
-              <div className={styles.topMovieImgOverlay}>
+              <div
+                className={styles.topMovieImgOverlay}
+                onClick={() => {
+                  if (liked.length > 0 && liked.includes(m.id)) {
+                    dispatch(favActions.removeFromFav(m.id));
+                  } else {
+                    dispatch(favActions.addToFav(m.id));
+                  }
+                }}
+              >
                 <AddToFav />
               </div>
             </div>
