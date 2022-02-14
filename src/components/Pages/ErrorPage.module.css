@@ -1,0 +1,14 @@
+.mainError {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 1rem;
+  align-items: center;
+}
+.mainError > button {
+  background-color: #f50d34;
+  border: 1px solid #f50d34;
+  color: #f2efde;
+  font-size: 1.8rem;
+  margin: 2rem;
+}
