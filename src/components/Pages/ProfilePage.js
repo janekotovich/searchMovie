@@ -9,9 +9,12 @@ const ProfilePage = () => {
     <>
       <div>
         <h1> Movie I liked </h1>
-        <ul>
+        <ul className={styles.personalMovies}>
           {liked.map((m) => (
-            <li key={m}>{m}</li>
+            <li key={m.id}>
+              <h2>{m.title}</h2>
+              <img src={m.image} />
+            </li>
           ))}
         </ul>
       </div>

@@ -1,0 +1,7 @@
+.personalMovies {
+  display: flex;
+}
+
+.personalMovies > li > img {
+  height: 30vh;
+}
