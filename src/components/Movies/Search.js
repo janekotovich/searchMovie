@@ -22,6 +22,7 @@ const Search = (props) => {
           type="text"
           ref={searchInputRef}
           placeholder="Type to search the movie"
+          required
         ></input>
         <button type="submit">Search me</button>
       </form>
