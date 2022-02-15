@@ -18,6 +18,7 @@
 .hover:hover,
 .hover:active {
   box-shadow: 0 0 10px #f2efde;
+  color: red;
 }
 .header > li:last-child {
   margin-left: auto;

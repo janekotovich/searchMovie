@@ -1,0 +1,9 @@
+.favourites {
+  display: flex;
+  flex-direction: column;
+}
+.favourites > svg {
+  margin: 0.6rem auto 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}

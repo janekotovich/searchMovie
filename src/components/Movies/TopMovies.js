@@ -8,6 +8,7 @@ const TopMovies = (props) => {
   let topTen = props.movies.slice(0, 10);
   const dispatch = useDispatch();
   const liked = useSelector((state) => state.favs.favourites);
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   return (
     <>
@@ -26,10 +27,8 @@ const TopMovies = (props) => {
                 onClick={() => {
                   if (liked.length > 0 && liked.includes(m.id)) {
                     dispatch(favActions.removeFromFav());
-                    console.log("removed");
                   } else {
                     dispatch(favActions.addToFav(m.id));
-                    console.log(liked);
                   }
                 }}
               >
