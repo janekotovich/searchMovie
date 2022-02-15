@@ -9,12 +9,21 @@ const favSlice = createSlice({
   initialState: initialFavState,
   reducers: {
     addToFav(state, action) {
-      state.favourites.push(action.payload);
+      const movie = {
+        id: action.payload.id,
+        title: action.payload.title,
+        image: action.payload.image,
+      };
+      state.favourites.push(movie);
     },
     removeFromFav(state, action) {
-      state.favourites.filter((favourite) => favourite !== action.payload);
+      state.favourites.filter(
+        (favourite) => favourite.id !== action.payload.id
+      );
       state.favourites.splice(
-        state.favourites.findIndex((favourite) => favourite === action.payload),
+        state.favourites.findIndex(
+          (favourite) => favourite.id === action.payload.id
+        ),
         1
       );
     },

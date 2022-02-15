@@ -25,10 +25,10 @@ const TopMovies = (props) => {
               <div
                 className={styles.topMovieImgOverlay}
                 onClick={() => {
-                  if (liked.length > 0 && liked.includes(m.id)) {
-                    dispatch(favActions.removeFromFav());
+                  if (liked && liked.some((mov) => mov.id === m.id)) {
+                    dispatch(favActions.removeFromFav(m));
                   } else {
-                    dispatch(favActions.addToFav(m.id));
+                    dispatch(favActions.addToFav(m));
                   }
                 }}
               >
