@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { errorActions } from "../store/error";
-import LoadingSpinner from "../UI/LoadingSpinner";
 
+import LoadingSpinner from "../UI/LoadingSpinner";
 import TopMovies from "../Movies/TopMovies";
 
 import { getTopMovies } from "../api/movieFinder/MovieFinder";
 import styles from "./Home.module.css";
+
 const Home = () => {
   const [topMovieList, setTopMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

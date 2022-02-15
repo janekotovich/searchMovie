@@ -3,7 +3,6 @@ import styles from "./MovieList.module.css";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 const MovieList = (props) => {
-  console.log(props.isDataLoading);
   return (
     <>
       {props.isDataLoading && (
