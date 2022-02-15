@@ -1,5 +1,16 @@
 .personalMovies {
   display: flex;
+  column-gap: 2rem;
+  width: 80vw;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style: none;
+}
+.personalMovies > li > h2 {
+  padding: 2rem;
 }
 
 .personalMovies > li > img {
