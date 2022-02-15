@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  gap: 5rem;
+  gap: 3rem;
   list-style: none;
   background-color: #424242;
   height: 100%;
@@ -20,6 +20,6 @@
   box-shadow: 0 0 10px #f2efde;
   color: red;
 }
-.header > li:last-child {
+.header > li:nth-child(3) {
   margin-left: auto;
 }
