@@ -11,6 +11,7 @@ import favReducer from "./fav";
 const reducers = combineReducers({
   auth: authReducer,
   favs: favReducer,
+  error: errorReducer,
 });
 
 const persistConfig = {
