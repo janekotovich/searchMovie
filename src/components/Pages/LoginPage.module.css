@@ -1,0 +1,5 @@
+.mainLoginPage {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}

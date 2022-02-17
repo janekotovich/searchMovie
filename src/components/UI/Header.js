@@ -17,8 +17,9 @@ const Header = (props) => {
   };
 
   const loginHandler = () => {
-    dispatch(authActions.login());
+    navigate("./login");
   };
+
   const logoutHandler = () => {
     dispatch(authActions.logout());
     navigate("./");
