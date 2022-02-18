@@ -22,3 +22,44 @@
   margin: 30vh;
   text-align: center;
 }
+.topMovieImageContainer {
+  position: relative;
+  transition: transform 0.2s;
+}
+.topMovieImageContainer:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.topMovieImageContainer:hover .topMovieImgOverlay {
+  opacity: 1;
+}
+.topMovieImgOverlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.link {
+  color: #f2efde;
+  text-decoration: none;
+}
+
+.link:hover > div > h4 {
+  color: red;
+  font-size: 1.3rem;
+  transition: 0.5s ease;
+}
+.link:active > div > h4 {
+  font-size: 1.1rem;
+  transform: scale(0.95);
+  transition: 0.5s ease;
+}
+.topMovieInfo {
+  margin: 3rem auto;
+  height: 5vh;
+}
