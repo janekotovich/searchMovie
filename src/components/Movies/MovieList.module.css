@@ -1,9 +1,9 @@
 .movie__list {
   display: flex;
   column-gap: 2rem;
+  width: 80vw;
   overflow-x: auto;
   flex-wrap: nowrap;
-  width: 90vw;
   align-items: center;
   margin: auto;
 }
@@ -15,6 +15,7 @@
 
 .moviePoster {
   height: 40vh;
+  width: 15vw;
   object-fit: cover;
 }
 
@@ -41,7 +42,7 @@
   opacity: 0;
   bottom: 0;
   font-size: 20px;
-  padding: 20px;
+  padding: 1.5rem 2rem 2rem;
   text-align: center;
 }
 .link {
@@ -60,6 +61,6 @@
   transition: 0.5s ease;
 }
 .topMovieInfo {
-  margin: 3rem auto;
+  margin: 1.5rem auto;
   height: 5vh;
 }

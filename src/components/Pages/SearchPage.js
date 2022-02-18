@@ -19,11 +19,12 @@ const SearchPage = () => {
 
   useEffect(() => {
     let mounted = true;
+
     async function fetchMovieList() {
       const query = queryParams.get("query");
       const data = await getSearchMovieList(query);
       const movieData = data.data.results;
-      console.log(data);
+
       if (mounted) {
         setIsLoading(false);
         setMovieList(movieData);

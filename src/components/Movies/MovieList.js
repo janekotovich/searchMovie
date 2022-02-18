@@ -7,6 +7,7 @@ import { favActions } from "../store/fav";
 
 const MovieList = (props) => {
   const liked = useSelector((state) => state.favs.favourites);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -22,7 +23,6 @@ const MovieList = (props) => {
               <Link to={`../${m.id}`} className={styles.link}>
                 <div className={styles.topMovieInfo}>
                   <h4>{m.title}</h4>
-                  <h5>{m.year}</h5>
                 </div>
               </Link>
               <div className={styles.topMovieImageContainer}>
