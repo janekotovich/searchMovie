@@ -10,7 +10,8 @@ const LoginForm = () => {
 
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(true);
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ const LoginForm = () => {
   };
   const formSubmitHandler = (e) => {
     e.preventDefault();
+
+    setEnteredNameTouched(true);
+
     if (enteredName.trim() === "") {
       setEnteredNameIsValid(false);
       return;
@@ -28,29 +32,56 @@ const LoginForm = () => {
     navigate("../profile");
   };
 
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
   return (
     <>
       <form onSubmit={formSubmitHandler}>
-        <div>
-          <label htmlFor="name">First Name</label>
-          <input
-            type="text"
-            id="name"
-            ref={nameInputRef}
-            onChange={nameInputChangeHandler}
-            value={enteredName}
-          />
-          {!enteredNameIsValid && (
-            <p className={styles.errorText}>Name must not be empty</p>
-          )}
-        </div>
-        {/* <div>
+        <div className={styles.loginForm}>
+          <div
+            className={
+              !nameInputIsInvalid
+                ? styles.formControl
+                : `${styles.formControl} ${styles.invalid} `
+            }
+          >
+            <label htmlFor="name">First Name</label>
+            <input
+              type="text"
+              id="name"
+              ref={nameInputRef}
+              onChange={nameInputChangeHandler}
+              value={enteredName}
+              placeholder="Your first Name"
+            />
+            {nameInputIsInvalid && (
+              <p className={styles.errorText}>Name must not be empty</p>
+            )}
+          </div>
+          {/* <div>
           <label htmlFor="name">Last Name</label>
           <input type="text" id="name"></input>
-        </div> */}
-        <div>
-          <label htmlFor="name">E-Mail Address</label>
-          <input type="text" id="name" />
+          </div> */}
+          <div
+            className={
+              !nameInputIsInvalid
+                ? styles.formControl
+                : `${styles.formControl} ${styles.invalid} `
+            }
+          >
+            <label htmlFor="email">E-Mail Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email"
+              // ref={nameInputRef}
+              // onChange={nameInputChangeHandler}
+              // value={enteredName}
+            />
+            {nameInputIsInvalid && (
+              <p className={styles.errorText}>Name must not be empty</p>
+            )}
+          </div>
         </div>
         <div>
           <button>Submit</button>

@@ -1,3 +1,27 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+input {
+  width: 30vw;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+}
+input:focus {
+  outline: none !important;
+  border: 1px solid #f2efde;
+  box-shadow: 0 0 10px #f2efde;
+}
+input::placeholder {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: #6e6d67;
+  text-align: center;
+}
 .errorText {
   color: red;
 }
