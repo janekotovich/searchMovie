@@ -4,10 +4,13 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import AddToFav from "../UI/AddToFav";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../store/fav";
+import { useNavigate } from "react-router-dom";
 
 const MovieList = (props) => {
   const liked = useSelector((state) => state.favs.favourites);
   const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -34,10 +37,14 @@ const MovieList = (props) => {
                 <div
                   className={styles.topMovieImgOverlay}
                   onClick={() => {
-                    if (liked && liked.some((mov) => mov.id === m.id)) {
-                      dispatch(favActions.removeFromFav(m));
+                    if (isAuth) {
+                      if (liked && liked.some((mov) => mov.id === m.id)) {
+                        dispatch(favActions.removeFromFav(m));
+                      } else {
+                        dispatch(favActions.addToFav(m));
+                      }
                     } else {
-                      dispatch(favActions.addToFav(m));
+                      navigate("../login");
                     }
                   }}
                 >
