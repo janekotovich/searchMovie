@@ -2,7 +2,7 @@ import styles from "./LoginForm.module.css";
 import { authActions } from "../store/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LoginForm = () => {
   const emailRegexx =
@@ -16,6 +16,10 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  let formIsvalid = false;
+
+  if (enteredNameIsValid) formIsvalid = true;
 
   const nameInputChangeHandler = (e) => {
     setEnteredName(e.target.value);
@@ -87,7 +91,7 @@ const LoginForm = () => {
           </div>
         </div>
         <div>
-          <button>Submit</button>
+          <button disabled={!formIsValid}>Submit</button>
         </div>
       </form>
     </>
