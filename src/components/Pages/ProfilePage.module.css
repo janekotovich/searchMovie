@@ -1,18 +1,33 @@
+.profilePageDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+}
 .personalMovies {
   display: flex;
-  column-gap: 2rem;
-  width: 80vw;
-  overflow-x: auto;
+  flex-direction: column;
+  gap: 2rem;
+  height: 60vh;
+  overflow-y: auto;
   flex-wrap: nowrap;
-  align-items: center;
-  text-align: center;
-  margin: auto;
+  /* align-items: center;
+  text-align: center; */
+  /* margin: auto; */
   list-style: none;
 }
-.personalMovies > li > h2 {
+.personalMovies > li {
+  display: flex;
+  align-items: center;
+}
+.personalMovies > li > img {
+  height: 10vh;
+  max-width: 7vw;
+  object-fit: contain;
+}
+.personalMovies > li > div {
   padding: 2rem;
 }
-
-.personalMovies > li > img {
-  height: 30vh;
+.personalMovies > li > div > button {
+  margin-top: 1rem;
 }
