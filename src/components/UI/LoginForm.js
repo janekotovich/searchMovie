@@ -1,77 +1,52 @@
 import styles from "./LoginForm.module.css";
 import { authActions } from "../store/auth";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import useInput from "../hooks/use-input";
 
 const LoginForm = () => {
   const emailRegexx =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  const {} = useInput();
+  const {
+    isValid: enteredNameIsValid,
+    hasError: nameInputHasError,
+    valueChangeHandler: nameChangedHandler,
+    inputBlurHandler: nameBlurHandler,
+  } = useInput((val) => val.trim() !== "");
 
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const {
+    isValid: enteredSecondNameIsValid,
+    hasError: secondNameInputHasError,
+    valueChangeHandler: secondNameChangedHandler,
+    inputBlurHandler: secondNameBlurHandler,
+  } = useInput((val) => val.trim() !== "");
 
-  const [enteredSecondName, setEnteredSecondName] = useState("");
-  const [enteredSecondNameTouched, setEnteredSecondNameTouched] =
-    useState(false);
+  const {
+    // value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangedHandler,
+    inputBlurHandler: emailBlurHandler,
+  } = useInput((val) => val.trim() !== "");
 
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
-
-  const enteredNameIsValid = enteredName.trim() !== "";
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
-
-  const enteredSecondNameIsVali = enteredSecondName.trim() !== "";
-  const secondNameInputIsInvalid =
-    !enteredSecondNameIsVali && enteredSecondNameTouched;
-
-  const enteredEmailIsValid =
-    emailRegexx.test(enteredEmail) && enteredEmail.trim() !== "";
-  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
+  // && emailRegexx.test(enteredEmail)
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   let formIsValid = false;
 
-  if (enteredNameIsValid && enteredSecondNameIsVali && enteredEmailIsValid)
+  if (enteredNameIsValid && enteredSecondNameIsValid && enteredEmailIsValid)
     formIsValid = true;
-
-  const nameInputChangeHandler = (e) => {
-    setEnteredName(e.target.value);
-  };
-  const nameInputBlurHandler = (e) => {
-    setEnteredNameTouched(true);
-  };
-
-  const secondNameInputChangeHandler = (e) => {
-    setEnteredSecondName(e.target.value);
-  };
-  const secondNameInputBlurHandler = (e) => {
-    setEnteredSecondNameTouched(true);
-  };
-
-  const emailInputChangeHandler = (e) => {
-    setEnteredEmail(e.target.value);
-  };
-  const emailInputBlurHandler = (e) => {
-    setEnteredEmailTouched(true);
-  };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    setEnteredNameTouched(true);
-    setEnteredSecondNameTouched(true);
-    setEnteredEmailTouched(true);
-
     if (
       !enteredNameIsValid ||
-      !enteredEmailIsValid ||
-      !enteredSecondNameIsVali
+      !enteredSecondNameIsValid ||
+      !enteredEmailIsValid
     ) {
       return;
     }
@@ -85,7 +60,7 @@ const LoginForm = () => {
         <div className={styles.loginForm}>
           <div
             className={
-              !nameInputIsInvalid
+              !nameInputHasError
                 ? styles.formControl
                 : `${styles.formControl} ${styles.invalid} `
             }
@@ -94,17 +69,17 @@ const LoginForm = () => {
             <input
               type="text"
               id="firstName"
-              onChange={nameInputChangeHandler}
-              onBlur={nameInputBlurHandler}
+              onChange={nameChangedHandler}
+              onBlur={nameBlurHandler}
               placeholder="Your First Name"
             />
-            {nameInputIsInvalid && (
+            {nameInputHasError && (
               <p className={styles.errorText}>First Name must not be empty</p>
             )}
           </div>
           <div
             className={
-              !secondNameInputIsInvalid
+              !secondNameInputHasError
                 ? styles.formControl
                 : `${styles.formControl} ${styles.invalid} `
             }
@@ -113,17 +88,17 @@ const LoginForm = () => {
             <input
               type="text"
               id="secondName"
-              onChange={secondNameInputChangeHandler}
-              onBlur={secondNameInputBlurHandler}
+              onChange={secondNameChangedHandler}
+              onBlur={secondNameBlurHandler}
               placeholder="Your Second Name"
             />
-            {secondNameInputIsInvalid && (
+            {secondNameInputHasError && (
               <p className={styles.errorText}>Second Name must not be empty</p>
             )}
           </div>
           <div
             className={
-              !emailInputIsInvalid
+              !emailInputHasError
                 ? styles.formControl
                 : `${styles.formControl} ${styles.invalid} `
             }
@@ -133,10 +108,10 @@ const LoginForm = () => {
               type="email"
               id="email"
               placeholder="Your Email"
-              onChange={emailInputChangeHandler}
-              onBlur={emailInputBlurHandler}
+              onChange={emailChangedHandler}
+              onBlur={emailBlurHandler}
             />
-            {emailInputIsInvalid && (
+            {emailInputHasError && (
               <p className={styles.errorText}>Email must not be empty</p>
             )}
           </div>
