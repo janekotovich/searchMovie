@@ -2,16 +2,17 @@ import styles from "./LoginForm.module.css";
 import { authActions } from "../store/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const LoginForm = () => {
   const emailRegexx =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== "";
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,20 +20,22 @@ const LoginForm = () => {
   const nameInputChangeHandler = (e) => {
     setEnteredName(e.target.value);
   };
+
+  const nameInputBlurHandler = (e) => {
+    setEnteredNameTouched(true);
+  };
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
     setEnteredNameTouched(true);
 
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    if (!enteredNameIsValid) {
       return;
     }
     dispatch(authActions.login());
     navigate("../profile");
   };
-
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   return (
     <>
@@ -49,8 +52,8 @@ const LoginForm = () => {
             <input
               type="text"
               id="name"
-              ref={nameInputRef}
               onChange={nameInputChangeHandler}
+              onBlur={nameInputBlurHandler}
               value={enteredName}
               placeholder="Your first Name"
             />
