@@ -23,21 +23,24 @@ const LoginForm = () => {
   } = useInput((val) => val.trim() !== "");
 
   const {
-    // value: enteredEmail,
+    value: enteredEmail,
     isValid: enteredEmailIsValid,
     hasError: emailInputHasError,
     valueChangeHandler: emailChangedHandler,
     inputBlurHandler: emailBlurHandler,
-  } = useInput((val) => val.trim() !== "");
-
-  // && emailRegexx.test(enteredEmail)
+  } = useInput((val) => val.trim() !== "" && emailRegexx.test(val));
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   let formIsValid = false;
 
-  if (enteredNameIsValid && enteredSecondNameIsValid && enteredEmailIsValid)
+  if (
+    enteredNameIsValid &&
+    enteredSecondNameIsValid &&
+    enteredEmailIsValid &&
+    emailRegexx.test(enteredEmail)
+  )
     formIsValid = true;
 
   const formSubmitHandler = (e) => {
@@ -74,7 +77,7 @@ const LoginForm = () => {
               placeholder="Your First Name"
             />
             {nameInputHasError && (
-              <p className={styles.errorText}>First Name must not be empty</p>
+              <p className={styles.errorText}>first name must not be empty</p>
             )}
           </div>
           <div
@@ -93,7 +96,7 @@ const LoginForm = () => {
               placeholder="Your Second Name"
             />
             {secondNameInputHasError && (
-              <p className={styles.errorText}>Second Name must not be empty</p>
+              <p className={styles.errorText}>second name must not be empty</p>
             )}
           </div>
           <div
@@ -112,12 +115,12 @@ const LoginForm = () => {
               onBlur={emailBlurHandler}
             />
             {emailInputHasError && (
-              <p className={styles.errorText}>Email must not be empty</p>
+              <p className={styles.errorText}>email must not be empty</p>
             )}
           </div>
-        </div>
-        <div>
-          <button disabled={!formIsValid}>Submit</button>
+          <div>
+            <button disabled={!formIsValid}>Submit</button>
+          </div>
         </div>
       </form>
     </>

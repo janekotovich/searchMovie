@@ -2,26 +2,51 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   gap: 1.5rem;
+  padding: 3rem;
+}
+.formControl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 5rem;
+}
+.formControl label {
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-input {
+.formControl input {
   width: 30vw;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   text-align: center;
 }
-input:focus {
-  outline: none !important;
-  border: 1px solid #f2efde;
-  box-shadow: 0 0 10px #f2efde;
+.formControl input:focus {
+  outline: none;
+  border: 3px solid #00acee;
+  box-shadow: 0 0 10px #00acee;
 }
-input::placeholder {
+.invalid input,
+.invalid input:focus {
+  outline: none;
+  border: 3px solid #db4437;
+  box-shadow: 0 0 10px #db4437;
+}
+.formControl input::placeholder {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
-  color: #6e6d67;
+  color: #b6b4ac;
   text-align: center;
 }
+
 .errorText {
   color: red;
+}
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
