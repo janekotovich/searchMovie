@@ -6,8 +6,9 @@ Website for searching movies
 
 
 
-https://user-images.githubusercontent.com/76935202/154871456-72c40fda-e8da-4cc3-839e-88034d900309.mp4
 
+
+https://user-images.githubusercontent.com/76935202/154871996-93b4a9b5-b97d-45f6-a480-2c56b45ec122.mp4
 
 
 
