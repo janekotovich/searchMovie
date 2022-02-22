@@ -4,7 +4,6 @@ import { favActions } from "../store/fav";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const liked = useSelector((state) => state.favs.favourites);
-  console.log(liked);
 
   return (
     <>
