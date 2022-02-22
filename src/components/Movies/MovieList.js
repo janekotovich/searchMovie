@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./MovieList.module.css";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import AddToFav from "../UI/AddToFav";
+import RemoveFromFav from "../UI/RemoveFromFav";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../store/fav";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +49,11 @@ const MovieList = (props) => {
                     }
                   }}
                 >
-                  <AddToFav />
+                  {liked.some((mov) => mov.id === m.id) ? (
+                    <RemoveFromFav />
+                  ) : (
+                    <AddToFav />
+                  )}
                 </div>
               </div>
             </li>
