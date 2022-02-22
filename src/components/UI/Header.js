@@ -11,11 +11,6 @@ const Header = (props) => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
 
-  const searchReqHandler = (e) => {
-    e.preventDefault();
-    props.onSearchReq(e.target[0].value);
-  };
-
   const loginHandler = () => {
     navigate("./login");
   };
@@ -39,7 +34,7 @@ const Header = (props) => {
             </Link>
           </li>
           <li>
-            <Search onSearchReq={searchReqHandler} />
+            <Search />
           </li>
           {isAuth && (
             <li>
