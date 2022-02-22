@@ -1,9 +1,11 @@
-import styles from "./TopMovies.module.css";
 import { Link } from "react-router-dom";
-import AddToFav from "../UI/AddToFav";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../store/fav";
 import { useNavigate } from "react-router-dom";
+
+import styles from "./TopMovies.module.css";
+import AddToFav from "../UI/AddToFav";
+import RemoveFromFav from "../UI/RemoveFromFav";
 
 const TopMovies = (props) => {
   let topTen = props.movies.slice(0, 10);
@@ -38,7 +40,11 @@ const TopMovies = (props) => {
                   }
                 }}
               >
-                <AddToFav />
+                {liked.some((mov) => mov.id === m.id) ? (
+                  <RemoveFromFav />
+                ) : (
+                  <AddToFav />
+                )}
               </div>
             </div>
             <Link to={`./${m.id}`} className={styles.link}>
