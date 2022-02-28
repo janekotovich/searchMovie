@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-const usePagination = ({
+export const usePagination = ({
   totalCount,
   pageSize,
   siblingCount = 1,
@@ -44,4 +44,3 @@ const usePagination = ({
   }, [totalCount, pageSize, siblingCount, currentPage]);
   return <></>;
 };
-export default usePagination;
