@@ -37,6 +37,10 @@ const usePagination = ({
       );
       return [fisrtPageIndex, DOTS, ...rightRange];
     }
+    if (shouldShowLeftDots && shouldShowRightDots) {
+      let middleRange = range(leftSiblingIndex, rightSiblingIndex);
+      return [fisrtPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
+    }
   }, [totalCount, pageSize, siblingCount, currentPage]);
   return <></>;
 };
