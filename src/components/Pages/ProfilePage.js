@@ -2,19 +2,25 @@ import styles from "./ProfilePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../store/fav";
 import Pagination from "../UI/Pagination";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const liked = useSelector((state) => state.favs.favourites);
-  let pageSize = 7;
+  let pageSize = 3;
   const [currentPage, setCurrentPage] = useState(1);
+  const currentMoviesData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return liked.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
 
   return (
     <>
       <div className={styles.profilePageDiv}>
         <h1> Movies I liked </h1>
         <ul className={styles.personalMovies}>
-          {liked.map((m) => (
+          {currentMoviesData.map((m) => (
             <li key={m.id}>
               <img src={m.image} />
               <div>
@@ -32,14 +38,14 @@ const ProfilePage = () => {
             </li>
           ))}
         </ul>
+        <Pagination
+          className={styles.paginationBar}
+          currentPage={currentPage}
+          totalCount={liked.length}
+          pageSize={pageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </div>
-      <Pagination
-        className={styles.paginationBar}
-        currentPage={currentPage}
-        totalCount={liked.length}
-        pageSize={pageSize}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
     </>
   );
 };

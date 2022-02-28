@@ -9,11 +9,8 @@
   flex-direction: column;
   gap: 2rem;
   height: 60vh;
-  overflow-y: auto;
-  flex-wrap: nowrap;
-  /* align-items: center;
-  text-align: center; */
-  /* margin: auto; */
+  /* overflow-y: auto;
+  flex-wrap: nowrap; */
   list-style: none;
 }
 .personalMovies > li {
