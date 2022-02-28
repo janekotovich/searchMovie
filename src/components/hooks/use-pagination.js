@@ -23,6 +23,12 @@ const usePagination = ({
     const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
     const fisrtPageIndex = 1;
     const lastPageIndex = totalPageCount;
+
+    if (!shouldShowLeftDots && shouldShowRightDots) {
+      let leftItemCount = 3 + 2 * siblingCount;
+      let leftRange = range(1, leftItemCount);
+      return [...leftRange, DOTS, totalPageCount];
+    }
   }, [totalCount, pageSize, siblingCount, currentPage]);
   return <></>;
 };
