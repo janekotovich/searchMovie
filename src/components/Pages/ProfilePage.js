@@ -1,9 +1,13 @@
 import styles from "./ProfilePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../store/fav";
+import Pagination from "../UI/Pagination";
+import { useState } from "react";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const liked = useSelector((state) => state.favs.favourites);
+  let pageSize = 7;
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <>
@@ -29,6 +33,13 @@ const ProfilePage = () => {
           ))}
         </ul>
       </div>
+      <Pagination
+        className={styles.paginationBar}
+        currentPage={currentPage}
+        totalCount={liked.length}
+        pageSize={pageSize}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </>
   );
 };
