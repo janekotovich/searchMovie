@@ -29,6 +29,14 @@ const usePagination = ({
       let leftRange = range(1, leftItemCount);
       return [...leftRange, DOTS, totalPageCount];
     }
+    if (shouldShowLeftDots && !shouldShowRightDots) {
+      let rightItemCount = 3 + 2 * siblingCount;
+      let rightRange = range(
+        totalPageCount - rightItemCount + 1,
+        totalPageCount
+      );
+      return [fisrtPageIndex, DOTS, ...rightRange];
+    }
   }, [totalCount, pageSize, siblingCount, currentPage]);
   return <></>;
 };
