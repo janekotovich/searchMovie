@@ -1,0 +1,20 @@
+.paginationContainer {
+  display: flex;
+  list-style: none;
+}
+.paginationItem {
+  text-align: center;
+  margin: auto 0.5rem;
+  display: flex;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.arrow ::before {
+  position: relative;
+  /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+  content: "";
+  /* By using an em scale, the arrows will size with the font */
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+}

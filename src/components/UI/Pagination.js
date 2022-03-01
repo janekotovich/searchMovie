@@ -25,18 +25,32 @@ const Pagination = (props) => {
 
   return (
     <>
-      <ul>
-        <li onClick={onPrevious}>
-          <div className={styles.arrowLeft}></div>
+      <ul className={styles.paginationContainer}>
+        <li onClick={onPrevious} className={styles.paginationItem}>
+          <div className={styles.arrowLeft} className={styles.arrow}></div>
         </li>
         {paginationRange.map((pageNumber) => {
           if (pageNumber === DOTS) {
-            return <li className={styles.paginationDots}>&#8230;</li>;
+            return (
+              <li
+                className={styles.paginationDots}
+                className={styles.paginationItem}
+              >
+                &#8230;
+              </li>
+            );
           }
-          return <li onClick={() => onPageChange(pageNumber)}>{pageNumber}</li>;
+          return (
+            <li
+              className={styles.paginationItem}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </li>
+          );
         })}
-        <li onClick={onNext}>
-          <div className={styles.arrowRight} />
+        <li onClick={onNext} className={styles.paginationItem}>
+          <div className={styles.arrowRight} className={styles.arrow} />
         </li>
       </ul>
     </>
