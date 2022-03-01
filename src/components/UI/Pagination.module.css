@@ -8,8 +8,9 @@
   display: flex;
   box-sizing: border-box;
   font-size: 1rem;
+  cursor: pointer;
 }
-.arrow ::before {
+.arrow::before {
   position: relative;
   /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
   content: "";
@@ -17,4 +18,13 @@
   display: inline-block;
   width: 0.4em;
   height: 0.4em;
+  border-right: 0.12em solid rgba(240, 236, 236, 0.87);
+  border-top: 0.12em solid rgba(247, 243, 243, 0.87);
+}
+
+.arrowLeft {
+  transform: rotate(-135deg) translate(-50%);
+}
+.arrowRight {
+  transform: rotate(45deg);
 }
